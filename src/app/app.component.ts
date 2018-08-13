@@ -7,11 +7,19 @@ const composerize = (<any>window).require("composerize-plus");
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  options = {
+    lineNumbers: false,
+    mode: 'yaml',
+    theme: 'material',
+    readOnly: false
+  };
+  content:string = 'docker run -p 8080:8080 nginx + 70b3c241efbc';
   title = 'angular-electron';
   lista;
   window: BrowserWindow;
   constructor() {
-    composerize('docker run -p 8080:8080 nginx + 70b3c241efbc')
+    this.content = 'docker run -p 8080:8080 nginx + 70b3c241efbc'; 
+    composerize(this.content);
   }
   listarArchivos = function(){
 
