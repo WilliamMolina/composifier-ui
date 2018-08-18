@@ -13,16 +13,19 @@ export class AppComponent {
     theme: 'material',
     readOnly: false
   };
-  content:string = 'docker run -p 8080:8080 nginx + 70b3c241efbc';
+  command = 'docker run -p 8080:8080 nginx + 70b3c241efbc';
+  content = '';
   title = 'angular-electron';
   lista;
   window: BrowserWindow;
   constructor() {
-    this.content = 'docker run -p 8080:8080 nginx + 70b3c241efbc'; 
-    composerize(this.content);
+    composerize(this.command).then((yaml) => {
+      this.content = yaml;
+    });
   }
-  listarArchivos = function(){
-
+  commandChanged = function(newCommand){
+    composerize(newCommand).then((yaml) => {
+      this.content = yaml;
+    });
   }
-
 }

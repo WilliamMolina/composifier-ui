@@ -1,4 +1,6 @@
-<ngx-codemirror 
-  [(ngModel)]="content" 
-  [options]="options"
-></ngx-codemirror>
+<div id="docker-commands">
+  <div><input [(ngModel)]="command" (ngModelChange)="commandChanged($event)" type="text"/></div>
+</div>
+<div id="compose-preview">
+  <ngx-codemirror [(ngModel)]="content" [options]="options"></ngx-codemirror>
+</div>
