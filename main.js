@@ -5,16 +5,14 @@ let win;
 function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({
-    width: 600, 
-    height: 600,
     backgroundColor: '#ffffff',
     icon: `file://${__dirname}/dist/angular-electron/assets/logo.png`
-  })
+  });
 
 
   win.loadURL(`file://${__dirname}/dist/angular-electron/index.html`)
 
-
+  win.maximize();
 
 
   //// uncomment below to open the DevTools.

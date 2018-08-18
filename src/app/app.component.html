@@ -1,5 +1,9 @@
+<div id="apps"></div>
 <div id="docker-commands">
-  <div><input [(ngModel)]="command" (ngModelChange)="commandChanged($event)" type="text"/></div>
+  <div class="header">
+    <mat-icon svgIcon="add_circle_outline" (click)="addCommand()"></mat-icon>
+  </div>
+  <div *ngFor="let command of commands;let in = index"><input name="command-{{in}}" [(ngModel)]="command.text" type="text" (ngModelChange)="commandChanged($event)" placeholder="{{placeholder}}"/></div>
 </div>
 <div id="compose-preview">
   <ngx-codemirror [(ngModel)]="content" [options]="options"></ngx-codemirror>
